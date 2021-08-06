@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Blog</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="simply_blogging.js"></script>
+</head>
+<body>
+<style>
+.page-title {
+  text-align: center; 
+  color:rgb(139, 194, 191); 
+  font-family:'Lucida Sans';
+}
+.nav{background-color: rgb(139, 194, 191);}
+.nav-item:hover{background: rgb(109, 150, 148);}
+.input-container{
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+} 
+label { 
+  display: inline-block;
+  width: 100px;
+  text-align:right;
+  vertical-align: top;
+}
+.input-1{height: 30px; width:500px;}
+.input-2 {height: 300px; width: 500px;}
+.btn{float: right;}
+.btn-primary{background-color: teal;}
+.btn-secondary{background-color: tomato;}
+.all-posts{
+  padding-left: 30px;
+  padding-right: 50px;
+  padding-bottom: 30;
+  padding-top: 30px;
+}
+.my-post{
+  width: 500px; 
+  text-align: top;
+  border-style: solid; 
+  /* border-radius: 2px 2px 2px 2px; */
+  border-width: 2px; border-color:rgb(139, 194, 191);
+  margin-left: 10px; 
+  margin-right: 10px;
+  margin-top:5px;
+  margin-bottom:5px;
+  padding-top:5px;
+  display: inline-block;
+}
+img{
+  max-width:100%;
+  max-height:100%;
+}
+
+</style>
+
+    <ul class="nav">
+        <!-- This link is disabled because it is page we are on -->
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" >Add Blog </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#" >Home </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contacts</a>
+        </li>
+      </ul>   
+
+    <br/><h1 class="page-title">Simply Blogging</h1><br/>
+
+    <div style="padding-bottom: 50px; padding-top: 50px; background-image:url('https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');">
+      <div class="input-container">
+
+        <form class="blog-form">
+          <h4 style= "padding-left: 100px; color:rgb(241, 248, 247);">Post Something</h4>
+          <div class="title">
+            <label>Title</label>
+            <input type = "text" id="title" class="input-1"/><br/>
+          </div>
+          <div class="content">
+            <label>Article</label>
+            <input type = "text" id="content" class="input-2"/><br/>
+          </div>
+          <div class="img">
+            <label>Add Image</label>
+            <input type = "url" id="img" class="input-1"/><br/><br/>
+          </div>
+            <input type="button" class="btn btn-primary" value="Submit" onclick="makePost()"/>
+            <input type="reset" class="btn btn-secondary" value="Clear"/>
+        </form>
+      </div>
+    </div><br/><br/>
+    <div id="all-posts" class="all-posts">
+
+    </div>
+
+</body>
+</html>
