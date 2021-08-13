@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add To Cart</title>
+    <script src="add_to_cart.js"></script>
+    <style>
+        #page-title{
+            color: rgb(165, 161, 161);
+        }
+        .listing{
+            outline: 2px dashed rgb(49, 72, 201);
+            max-width: 300px;
+        }
+        img{
+            max-width:100%;
+            max-height:100%;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="page-title">Add to Cart</h1>
+
+    <div>
+        <p>
+            <a href="checkout.html">Checkout</a>
+        </p>
+    </div>
+
+    <div>
+        <div class = "listing">
+            <p>Name: <b id="name1">Phone</b></p>
+            <p>Price: <b>$600</b></p>
+            <img src=""/>
+            <input type="button" value="Add to Cart" onClick="pushItem('Phone', 600)"/>
+        </div>
+        <div class = "listing">
+            <p>Name: <b id="name2">Laptop</b></p>
+            <p>Price: <b>$1,270</b></p>
+            <img src=""/>
+            <input type="button" value="Add to Cart" onClick="pushItem('Laptop',1270)"/>
+        </div>
+        <div class = "listing">
+            <p>Name: <b id="name3">T Shirt</b></p>
+            <p>Price: <b>$10.00</b></p>
+            <img src=""/>
+            <input type="button" value="Add to Cart" onClick="pushItem('T Shirt',10)"/>
+        </div>
+        <div class = "listing"> 
+            <p>Name: <b id="name4">Cat Stickers</b></p>
+            <p>Price: <b>$4.99</b></p>
+            <img src="http://cdn.shopify.com/s/files/1/0024/4370/6412/products/The_Black_Cat_Sticker_-_Product_Image_1024x.png?v=1537324304"/>
+            <input type="button" value="Add to Cart" onClick="pushItem('Cat Stickers', 4.99, 'http://cdn.shopify.com/s/files/1/0024/4370/6412/products/The_Black_Cat_Sticker_-_Product_Image_1024x.png?v=1537324304ow')"/>
+        </div>
+    </div>
+
+</body>
+</html>
