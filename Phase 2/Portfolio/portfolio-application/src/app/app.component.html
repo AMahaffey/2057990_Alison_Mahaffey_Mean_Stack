@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="login" *ngIf="isShowLoginDivIf">
+      <h2>Login Page</h2>
+      <form [formGroup]="loginRef" (ngSubmit)="checkUser()">
+      <label>UserName</label>
+      <input type="text" formControlName="user"/><br/>
+
+      <label>Password</label>
+      <input type="password" formControlName="pass"/><br/>
+
+      <input type="submit" value="Login" [disabled]="!loginRef.valid"/>
+      <input type="reset" value="Reset"/>
+      </form>
+      {{msg}}
+      <br/>
+      <input type="button" value="Sign Up" (click)="toggleDisplaySignup()"/>
+
+  </div>
+
+  <div id="portfolio" *ngIf="isShowPortfolioDivIf">
+    <h1>Portfolio Component</h1>
+    <!-- <h2>Welcome {{user}}</h2> -->
+      <form [formGroup]="contactRef">
+      <label>Contact Name </label>
+      <input type="text" formControlName="name"/><br/>
+      <label>Phone No. </label>
+      <input type="number" formControlName="numb"/> 
+      <input type="button" value="Save" (click)=addContact()/>
+      </form>
+
+      <table>
+        <thead>
+          <th>Name</th><th>PhoneNumber</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cont of contactList">
+            <td>{{cont.name}}</td>
+            <td>{{cont.phoneNumber}}</td>
+          </tr>
+        </tbody>
+      </table>
+    
+    <p>
+      <input type="button" value="Logout" (click)="toggleDisplayLogin()"/>
+    </p>
+  </div>
+
+  <div id="signup" *ngIf="isShowSignupDivIf">
+    <h1>Registration Form</h1>
+    <p>
+      <input type="button" value="Login" (click)="toggleDisplayLogin()"/>
+    </p>
+    <form [formGroup] = "userRef" (ngSubmit)="addNewUser()">
+    <label>First Name </label>
+    <input type="text" formControlName="first"/><br/>
+    <label>Last Name </label>
+    <input type="text" formControlName="last"/><br/>
+    <label>Set UserName </label>
+    <input type="text" formControlName="userN"/><br/>
+    <label>Set Password </label>
+    <input type="password" formControlName="pwd"/><br/>
+    <input type="submit" value="Save"/> |
+    <input type="reset" value="Reset"/>
+    </form>
+  </div>
+  
+</body>
+</html>
