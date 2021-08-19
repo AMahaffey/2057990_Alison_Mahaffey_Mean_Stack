@@ -1,0 +1,50 @@
+<h1>Employee Taskboard</h1>
+
+<div style="margin:auto">
+    <h2>Enter a Task:</h2>
+    <form [formGroup]="taskRef" (ngSubmit)="addTask()">
+        <mat-form-field>
+            <mat-label>ID </mat-label>
+            <input matInput name="newId" ngModel formControlName="newId"/>
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+            <mat-label>Name </mat-label>
+            <input matInput name="newName" ngModel formControlName="newName"/>
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+            <mat-label>Task </mat-label>
+            <input matInput name="newTask" ngModel formControlName="newTask"/>
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+            <mat-label>Deadline </mat-label>
+            <input matInput name="newDeadline" ngModel formControlName="newDeadline"/>
+        </mat-form-field>
+        <br/>
+        <button type="submit" mat-raised-button color="primary">Save</button>
+        <button type="reset" mat-raised-button style="background-color: bisque;">Clear</button>
+    </form>
+    <br/>
+    <!-- {{msg}} -->
+</div>
+
+<div >
+    <table border="1" border-style mat-table>
+    <thead>
+      <th mat-header-cell> ID </th>
+      <th mat-header-cell> Name </th>
+      <th mat-header-cell> Task </th>
+      <th mat-header-cell> Deadline </th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of taskList">
+        <td mat-cell>{{task.id}}</td>
+        <td>{{task.name}}</td>
+        <td>{{task.task}}</td>
+        <td>{{task.deadline}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
