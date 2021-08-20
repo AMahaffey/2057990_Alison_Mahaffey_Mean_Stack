@@ -1,0 +1,7 @@
+[
+    {"question":"5+5","ans1":"10","ans2":"11","ans3":"12","ans4":"13","correctAns":"10"},
+    {"question":"5-4","ans1":"0","ans2":"15","ans3":"1","ans4":"14","correctAns":"1"},
+    {"question":"What does a cat say?","ans1":"woof","ans2":"meow","ans3":"ribbet","ans4":"moo","correctAns":"meow"},
+    {"question":"34+5","ans1":"66","ans2":"39","ans3":"33","ans4":"13","correctAns":"10"},
+    {"question":"The first 3 digits of pi are what?","ans1":"3.14","ans2":"3.13","ans3":"3.12","ans4":"3.00","correctAns":"3.14"}
+]
