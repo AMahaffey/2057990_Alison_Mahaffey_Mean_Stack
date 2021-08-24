@@ -11,11 +11,7 @@ import { QuestionService } from '../question.service';
 export class TakeExamComponent implements OnInit {
   myForm:FormGroup;
   allQuestion: Array <Question> = new Array();
-
-  mssg1 = "";
-  mssg2 = "";
-  mssg3 = "";
-  mssg4 = "";
+  mssg: Array <string> = new Array();
   totalMssg:string = "";
 
 
@@ -43,13 +39,18 @@ export class TakeExamComponent implements OnInit {
 
   submit(){
     let numbCorrect:number = 0;
+    let index = 0;
     for(let q of this.allQuestion){
       let qNumb = q.question;
-
       let results = this.myForm.controls[qNumb].value;
       if (results === q.correctAns ){
         numbCorrect++;
+        this.mssg[index] = "This is the correct answer!";
+      }else{
+        this.mssg[index] = "This is the wrong answer. The correct answer was "+ q.correctAns;
       }
+      index++;
+
 
 
     }
