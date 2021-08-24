@@ -1,0 +1,15 @@
+{
+  "name": "log-and-debug-project",
+  "version": "1.0.0",
+  "description": "Accepts user input and stores data in a json log",
+  "main": "log-records.js",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alison Mahaffey",
+  "license": "ISC"
+}
