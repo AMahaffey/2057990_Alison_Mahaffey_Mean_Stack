@@ -53,16 +53,6 @@ let indexStart=`
             <input type = "submit" value="Delete Task"/><br/>
          </form>
          </div><br/>
-
-        <div>
-        <h3>List Task</h3>
-            <table id="taskTable">
-                <tr id="taskTblHeader">
-                    <th> Employee ID </th> 
-                    <th> Task ID </th>
-                    <th> Task </th>
-                    <th> Deadline </th>
-                </tr>
             `
 let innerIndex = ``;
 let indexEnd=`
@@ -126,27 +116,35 @@ let server = http.createServer((request,response)=>{
             console.log(tasks);
 
             let result = tasks.findIndex(t=>t.taskID==taskID);
-            if (result == -1){
-                response.write("There is no task matching this ID to delete");
-            }else{
+            if (result != -1){
                 tasks.splice(result,1);
                 console.log("Task ID "+taskID+" was removed from tasks array");
                 fs.writeFileSync("tasks.json",JSON.stringify(tasks));
                 console.log(tasks);
             }
-            response.write(indexStart+innerIndex+indexEnd);
+            innerIndex=displayRows(tasks);
+            response.write(indexStart+"There is no task matching this ID to delete"+innerIndex+indexEnd);
         }
     }
     response.end("<font color='blue'>Welcome to Task Tracker App</font>");
 });
 
 function displayRows(tasks){
-    let innerIndex = ``;
+    let innerIndex = ` <div>
+    <h3>List Task</h3>
+        <table>
+            <tr>
+                <th> Employee ID </th> 
+                <th> Task ID </th>
+                <th> Task </th>
+                <th> Deadline </th>
+            </tr>`;
     tasks.forEach((x)=>{
-        let rowContent =`<tr>
-                <td>`+x.empID+`</td>
-                <td>`+x.taskID+`</td>
-                <td>`+x.task+`</td>
+        let rowContent =`        
+                <tr>
+                    <td>`+x.empID+`</td>
+                    <td>`+x.taskID+`</td>
+                    <td>`+x.task+`</td>
                 <td>`+x.due+`</td>
             </tr>`;
             innerIndex = innerIndex + rowContent;
