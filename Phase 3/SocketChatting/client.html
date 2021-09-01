@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="/socket.io/socket.io.js"></script>
+    <script type = "text/JavaScript">
+        var socket = io();
+
+        function chatFunction(name, question){
+            if (name && question){
+                socket.emit("name", name);
+                socket.emit("question", question);
+            }
+        }
+
+        socket.on("welcome",(msg)=>{
+            let placement = document.getElementById("replyBox");
+            let pTag = document.createElement("p");
+            let serverReply = document.createTextNode(msg);
+            pTag.appendChild(serverReply);
+            placement.appendChild(pTag);
+        })
+        socket.on("greeting",(msg)=>{
+            let placement = document.getElementById("replyBox");
+            let pTag = document.createElement("p");
+            let serverReply = document.createTextNode(msg);
+            pTag.appendChild(serverReply);
+            placement.appendChild(pTag);
+        })
+        socket.on("reply",(msg)=> {
+            let placement = document.getElementById("replyBox");
+            let pTag = document.createElement("p");
+            let serverReply = document.createTextNode(msg);
+            pTag.appendChild(serverReply);
+            placement.appendChild(pTag);
+        })
+    </script>
+    <style>
+        html,body {
+            margin:0;
+            height: 100%; 
+            width: 100%;
+            padding-bottom: 20px;
+            text-align:center
+        }
+        #replyBox {
+            margin: auto;
+            height: 80%;
+            width: 50%;
+            border: 3px solid #343b42;
+            background-color:rgb(229, 235, 235);
+        }
+        #replyBox > p {
+            background-color: rgb(246, 250, 250);
+        }
+        #title {
+            color:rgb(49, 122, 233);
+        }
+        input {
+            width:40%;
+        }
+        #submit{
+            width:50%;
+            color:rgb(238, 238, 238);
+            background-color: rgb(49, 122, 233);
+        }
+        label {
+            width:9.5%;
+            color:rgb(49, 122, 233);
+            border: 2px solid #343b42;
+            background-color:rgb(229, 235, 235);
+        }
+    </style>
+</head>
+<body>
+        <h2 id="title">Chatting App</h2>
+        <div id="replyBox" class="overflow-auto"></div>
+        <form>
+                <label>Name</label>
+                <input type="text" id="clName" name="clName" required/><br/>
+                <label>Chat</label>
+                <input type="text" id="chat" name="chat" required/><br/>
+                <input type="button" id="submit" value="Send" onclick="chatFunction(document.getElementById('clName').value,document.getElementById('chat').value)"/>
+        </form>
+</body>
+</html>
