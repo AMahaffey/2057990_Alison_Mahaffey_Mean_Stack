@@ -2,7 +2,6 @@
 let mongoose = require("mongoose");
 let express = require("express");
 let bodyParser = require("body-parser");
-// let courseModel = require("./course.model");
 let app = express();
 // url
 let url="mongodb://localhost:27017/schoolserver";
@@ -85,7 +84,6 @@ db.once("open",()=> {
     })
 
     app.post("/add",(request,response)=> {
-        // let db = mongoose.connection;
         let courseDetails = request.body;
         console.log(courseDetails);
         let c = new courseModel({_id:courseDetails.courseID,
@@ -99,13 +97,11 @@ db.once("open",()=> {
             }else {
                 console.log(err);
             }
-            // mongoose.disconnect;
         })
         response.sendFile(__dirname+"\\addCourse.html");
     })
 
     app.post("/update",(request,response)=> {
-        // let db=mongoose.connection;
         let courseDetails = request.body;
         courseModel.updateOne({_id:courseDetails.courseID},{$set:{amt:courseDetails.amount}},(err,result)=> {
             if(!err){
@@ -117,14 +113,12 @@ db.once("open",()=> {
             }else{
                 console.log(err);
             }
-            // mongoose.disconnect();
-        })
+]        })
         console.log(courseDetails);
         response.sendFile(__dirname+"\\updateCourse.html");
     })
 
     app.post("/delete",(request,response)=> {
-        // let db = mongoose.connection;
         let courseDetails = request.body;
         console.log(courseDetails);
         courseModel.deleteMany({_id:{$eq:courseDetails.courseID}},(err,result) => {
@@ -137,7 +131,6 @@ db.once("open",()=> {
             }else{
                 console.log(err);
             }
-            // mongoose.disconnect();
         })
         response.sendFile(__dirname+"\\deleteCourse.html");
     })
