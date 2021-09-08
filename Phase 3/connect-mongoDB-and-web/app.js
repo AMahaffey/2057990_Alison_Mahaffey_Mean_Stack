@@ -113,7 +113,7 @@ db.once("open",()=> {
             }else{
                 console.log(err);
             }
-]        })
+       })
         console.log(courseDetails);
         response.sendFile(__dirname+"\\updateCourse.html");
     })
